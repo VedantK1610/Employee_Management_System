@@ -3,8 +3,6 @@ services:
   mysql:
     image: mysql:8.0
 
-    container_name: mysql-db
-
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: employee_db
@@ -31,8 +29,6 @@ services:
 
   flask:
     build: ./backend
-
-    container_name: flask-app
 
     ports:
       - "5000:5000"
