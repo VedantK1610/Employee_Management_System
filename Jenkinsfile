@@ -2,9 +2,11 @@ pipeline {
 
     agent any
 
+    triggers {
+        githubPush()
+    }
 
     stages {
-
 
         stage('Checkout') {
 
@@ -15,9 +17,6 @@ pipeline {
 
             }
         }
-
-
-
 
         stage('Build and Run Docker') {
 
@@ -31,9 +30,7 @@ pipeline {
 
         }
 
-
     }
-
 
     post {
 
@@ -42,7 +39,6 @@ pipeline {
             echo "Deployment Successful"
 
         }
-
 
         failure {
 
